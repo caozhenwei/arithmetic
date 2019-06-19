@@ -1,16 +1,22 @@
+//
 //选择排序
+//
+//思想：每一次遍历找到数组元素中的一个最大值（或最小值）
 //
 #include <stdio.h>
 
 void selectSort(int s[],int n) {
     int i,j,tmp;
     for(i = 0; i < n-1; i++) {
+        //max为数组中最大值的下标
         int max = 0;
         for(j = 0; j < n-i; j++) {
             if(s[j] > s[max]) {
                 max = j;
             }
         }
+
+        //把最大值交换到数组的最后面
         tmp = s[max];
         s[max] = s[n-i-1];
         s[n-i-1] = tmp;
