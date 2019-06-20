@@ -15,7 +15,6 @@
 //      a，待排序的数据
 //      n，数组的个数
 //
-
 void straightInsertionSort(int a[],int n) {
     for(int i = 1; i <= n; i++) {
         int j = i - 1;
