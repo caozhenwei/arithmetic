@@ -24,7 +24,7 @@ void quickSort(int s[],int start,int end) {
             i++;
         }
         
-        //从左往右找比基准小的数，交换到s[j移动
+        //从左往右找比基准大的数，交换到s[j移动
         while(i < j && standard >= s[i]) {
             i++;
         }  
