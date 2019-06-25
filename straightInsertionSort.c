@@ -16,22 +16,36 @@
 //      n，数组的个数
 //
 void straightInsertionSort(int a[],int n) {
-    for(int i = 1; i <= n; i++) {
-        int j = i - 1;
-        int tmp = 0;
-        while(j > 0) {
-            if(a[j] >= a[j-1]) {
-               break; 
-            }
+   // for(int i = 1; i <= n; i++) {
+   //     int j = i - 1;
+   //     int tmp = 0;
+   //     while(j > 0) {
+   //         if(a[j] >= a[j-1]) {
+   //            break; 
+   //         }
 
-            if(a[j] < a[j-1] ) {
+   //         if(a[j] < a[j-1] ) {
+   //             tmp = a[j];
+   //             a[j] = a[j-1];
+   //             a[j-1] = tmp;
+   //         }
+   //         j--;
+   //     }
+   // }    
+  
+   int tmp; 
+    for(int i = 1; i <= n; i++) {
+        for (int j = i-1; j > 0; j--) {
+            if(a[j] >= a[j-1]) {
+                break;
+            }
+            if(a[j] < a[j-1]) {
                 tmp = a[j];
                 a[j] = a[j-1];
-                a[j-1] = tmp;
+                a[j-1] =tmp;
             }
-            j--;
         }
-    }    
+    }
 }
 
 int main() {
