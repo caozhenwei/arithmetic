@@ -47,15 +47,15 @@ void straightInsertionSort(int a[],int n) {
 //        }
 //    }
     
-    int temp;
+    int tmp;
     for(int i = 1; i < n; i++) {
         int j = i - 1;
-        temp = a[i];
+        tmp = a[i];
         while(tmp < a[j] && j >=0 ) {
             a[j+1] = a[j];
             j--;
         }
-        a[j+1] = temp;
+        a[j+1] = tmp;
     }
 }
 
