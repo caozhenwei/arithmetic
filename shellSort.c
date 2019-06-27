@@ -9,16 +9,19 @@
 #include <stdio.h>
 
 void shellSort(int a[], int n) {
-    int gap,tmp;
+    int gap,tmp,i,j;
     for(gap = n/2; gap > 0; gap = gap/2) {
-        for(int i = gap; i < n; i++) {
-            int j = i;
-            while(j - gap > 0 && a[j] < a[j-gap]) {
-                tmp = a[j];
-                a[j] = a[j-gap];
-                a[j-gap] = tmp;  
+        for(i = gap; i < n; i++) {
+            tmp = a[i];
+            //在直接插入排序里面这里是 j = i - 1
+            j = i - gap;
+            while(tmp < a[j] && j >= 0) {
+                //在直接插入排序里面这里是 a[j+1] = a[j]
+                a[j+gap] = a[j];
                 j = j - gap; 
             }
+            //在直接插入排序里面这里是 a[j+1] = tmp;
+            a[j+gap] = tmp;
         }
     }
 }
