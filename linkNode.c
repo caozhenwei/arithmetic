@@ -57,6 +57,36 @@ void printLink(LinkNode *link) {
     printf("\n");
 }
 
+void reverse(LinkNode *link) {
+//    if(link->next == NULL) {
+//        return;
+//    }
+//
+//    LinkNode *p = link->next;
+//    LinkNode *first = link->next;
+//    while(p != NULL && p->next != NULL) {
+//        LinkNode *temp = p->next;
+//        p->next = temp->next;
+//        temp->next = first;
+//        first = temp;
+//    }
+//    link->next = first;
+
+    LinkNode *head = link;
+    LinkNode *p = link->next;
+    LinkNode *q = p->next;
+    LinkNode *r;
+    link->next = NULL;
+    p->next = NULL;
+    while(q) {
+        r = q->next;
+        q->next = p;
+        p = q;
+        q = r;
+    }
+    head->next = p;
+}
+
 int main() {
     printf("欢迎来到单链表的增删改查!\n请输入要创建链表的节点数:\n");
     int n;
@@ -64,6 +94,9 @@ int main() {
 
     LinkNode *link = create(n);
 
+    printLink(link);
+
+    reverse(link);
     printLink(link);
     
     printf("请输入要删除的节点序号：\n");
